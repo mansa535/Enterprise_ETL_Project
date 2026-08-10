@@ -28,7 +28,7 @@ Primary Data Sources
 
 ---
 
-## Architecture
+1. Architecture
 
 ```text
                     ┌──────────────────┐
@@ -88,7 +88,7 @@ Primary Data Sources
 
 ---
 
-## Overview
+2.Overview
 
 The **Enterprise ETL Pipeline & Data Warehouse Synchronizer** is a production-oriented
 data engineering system designed to consolidate customer information from
@@ -108,62 +108,7 @@ duplicate records, and incremental data synchronization.
 
 - **PostgreSQL**
 
----
-
-## Architecture
-
-```text
-                    ┌──────────────────┐
-                    │    Salesforce    │
-                    └────────┬─────────┘
-                             │
-                             │
-                    ┌────────▼─────────┐
-                    │                  │
-                    │  Data Extraction │
-                    │                  │
-                    └────────┬─────────┘
-                             │
-                    ┌────────▼─────────┐
-                    │   Raw Data       │
-                    │   Storage        │
-                    │   AWS S3         │
-                    └────────┬─────────┘
-                             │
-                             │
-                    ┌────────▼─────────┐
-                    │ Data Cleaning &  │
-                    │ Transformation   │
-                    └────────┬─────────┘
-                             │
-                    ┌────────▼─────────┐
-                    │ Data Validation  │
-                    │ & Standardization│
-                    └────────┬─────────┘
-                             │
-                    ┌────────▼─────────┐
-                    │ Deduplication &  │
-                    │ Incremental Load │
-                    └────────┬─────────┘
-                             │
-                    ┌────────▼─────────┐
-                    │    PostgreSQL    │
-                    │  Data Warehouse  │
-                    └────────┬─────────┘
-                             │
-                    ┌────────▼─────────┐
-                    │ Apache Airflow   │
-                    │ Orchestration    │
-                    └──────────────────┘
-
-
-                    ┌──────────────────┐
-                    │      Stripe      │
-                    └────────┬─────────┘
-                             │
-                             └──────────► Data Extraction
-                             Core Capabilities
-# Core Capabilities
+3.Core Capabilities
    *API Data Extraction
      Salesforce API integration
      Stripe API integration
@@ -205,7 +150,7 @@ duplicate records, and incremental data synchronization.
      Environment-based configuration
      Automated testing
      CI/CD integration 
-#Technology Stack
+4.Technology Stack
 Category	              Technology
 Programming Language	  Python 3.11+
 API Integration	          Requests
@@ -256,7 +201,7 @@ Enterprise_ETL_Project/
 ├── requirements.txt
 ├── .gitignore
 └── .env.example
-#ETL Workflow
+5.ETL Workflow
 Third-Party APIs
        │
        ▼
@@ -332,7 +277,7 @@ Orchestrate
 Apache Airflow coordinates the complete ETL workflow and controls task
 dependencies and scheduled execution.
 
-#Data Integration Strategy
+6.Data Integration Strategy
 
 Salesforce and Stripe may represent customer information differently.
 
@@ -369,7 +314,7 @@ common internal customer schema.
 │     Record      │
 └─────────────────┘
 
-#Reliability & Error Handling
+7.Reliability & Error Handling
 
 The pipeline is designed to handle temporary failures and unreliable
 external services.
@@ -402,7 +347,7 @@ Notifications
 
 Email notifications are planned for important pipeline failures.
 
-# Data Warehouse Synchronization
+8. Data Warehouse Synchronization
 
 The loading layer uses an incremental synchronization strategy.
 
@@ -426,7 +371,7 @@ the warehouse.
                        │
                        ▼
                  PostgreSQL
-10. Configuration
+9.. Configuration
 
 Sensitive credentials are managed using environment variables.
 
@@ -449,7 +394,7 @@ Security Rule
 Real API keys, passwords, database credentials, and AWS credentials must
 never be committed to GitHub.
 
-11. Development Workflow
+10. Development Workflow
 
 The project follows a collaborative Git workflow.
                     main
@@ -470,7 +415,7 @@ The project follows a collaborative Git workflow.
                      │
                      ▼
                 Merge to main
-eam Lead — Mansa
+Team Lead — Manasa
 
 Responsibilities:
 GitHub repository management
